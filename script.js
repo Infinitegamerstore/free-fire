@@ -19,9 +19,9 @@ function selectPayment(element) {
 
 function orderNow() {
     const userId = document.getElementById('userId').value;
-   
+    const zoneId = document.getElementById('zoneId').value;
 
-    if (!userId ||  !selectedProduct || !selectedPayment) {
+    if (!userId || !zoneId || !selectedProduct || !selectedPayment) {
         alert('Please fill in all fields and select a product and payment method.');
         return;
     }
@@ -29,7 +29,7 @@ function orderNow() {
     const productInfo = selectedProduct.querySelector('.product-info').innerText;
     const paymentMethod = selectedPayment.querySelector('span').innerText;
 
-    const message = `User ID: ${userId}\nZone ID:  ${productInfo}\nPayment Method: ${paymentMethod}`;
+    const message = `User ID: ${userId}\nZone ID: ${zoneId}\nProduct: ${productInfo}\nPayment Method: ${paymentMethod}`;
     const whatsappUrl = `https://wa.me/8414075796?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappUrl, '_blank');
